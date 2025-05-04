@@ -13,13 +13,13 @@ class LoginController extends Controller
 
     }
 
-    public function login(Request $resquest){
-        $login= $resquest->login;
-        $password = $resquest->password;
+    public function login(Request $request){
+        $login= $request->login;
+        $password = $request->password;
         $credentials = ['login' => $login , 'password'=> $password];
          if(Auth::attempt($credentials)){
-               $resquest->session()->regenerate();
-               return to_route('welcome')->with('success','you are right connect' .$login. ".");
+               $request->session()->regenerate();
+               return to_route('welcome')->with('success', 'You are right connect ' . $login . ".");
          }else{
              return back()->withErrors([
                 'login'=> 'Login or password false.'               

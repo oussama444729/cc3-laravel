@@ -19,11 +19,13 @@ class LoginController extends Controller
         $credentials = ['login' => $login , 'password'=> $password];
          if(Auth::attempt($credentials)){
                $request->session()->regenerate();
-               return to_route('welcome')->with('success', 'You are right connect ' . $login . ".");
+               return to_route('dashboard')->with('success', 'You are right connect ' . $login . ".");
          }else{
              return back()->withErrors([
                 'login'=> 'Login or password false.'               
              ])->withInput();
          }
     }
+
+   
 }

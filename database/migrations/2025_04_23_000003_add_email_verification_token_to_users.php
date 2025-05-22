@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('stores', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('address')->nullable();
-            $table->string('phone')->nullable();
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('email_verification_token')->nullable()->after('is_active');
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('stores');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('email_verification_token');
+        });
     }
 };

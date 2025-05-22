@@ -1,12 +1,9 @@
-@if (session('success'))
-    <div class="alert alert-success text-center mb-4">
-        {{ session('success') }}
-    </div>
-@endif
+
 
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container py-5">
     <div class="text-center bg-light p-4 rounded shadow-sm">
         <h2 class="display-4 mb-4 text-primary">Bienvenue au Système de Gestion des Stocks</h2>

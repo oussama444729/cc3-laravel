@@ -23,6 +23,15 @@
 
             <a href="{{ route('dashboard') }}" class="btn btn-outline-light">dashboard</a>
 
+            {{-- button logout --}}
+
+            <form method="POST" action="{{ route('logout') }}" >
+                        @csrf
+                        <button type="submit" class="btn btn-outline-danger">Se déconnecter</button>
+             </form>
+
+             {{-- button the profil  --}}
+               <a href="{{ route('profile') }}" class="btn btn-primary me-2">Mon profil</a>
         </nav>
     </header>
 

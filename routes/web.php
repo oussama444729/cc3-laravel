@@ -56,7 +56,7 @@ Route::get('/products-by-category/{category}', [CategoryController::class, 'getP
 
 // Routes des produits par fournisseur
 Route::get('/products-by-supplier', [DashboardController::class, 'productsBySupplier'])->name('products.by.supplier');
-Route::get('/api/products-by-supplier/{supplier}', [DashboardController::class, 'getProductsBySupplier'])->name('api.products.by.supplier');
+
 
 // Routes des produits par magasin
 Route::get('/products-by-store', [DashboardController::class, 'productsByStore'])->name('products.by.store');

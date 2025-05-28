@@ -51,7 +51,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="5" class="text-center">No products found in this category</td>
+                                <td colspan="5" class="text-center">Aucun produit trouvé dans cette catégorie.</td>
                             </tr>
                         @endforelse
                     </tbody>

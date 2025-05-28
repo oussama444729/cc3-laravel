@@ -15,7 +15,7 @@
             <a href="/products-by-category" class="btn btn-warning btn-lg m-2 shadow">Produits par Catégorie</a>
             <a href="/products-by-supplier" class="btn btn-secondary btn-lg m-2 shadow">Produits par Fournisseur</a>
             <a href="/products-by-store" class="btn btn-dark btn-lg m-2 shadow">Produits par Magasin</a>
-            <a href="{{ route('orders.index') }}" class="btn btn-danger btn-lg m-2 shadow">Commandes par Client</a>
+            
         </div>
     </div>
 </div>

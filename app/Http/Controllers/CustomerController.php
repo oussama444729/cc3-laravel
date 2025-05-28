@@ -28,49 +28,39 @@ class CustomerController extends Controller
         return view('customers.create');
     }
 
-    /**
-     * Store a newly created customer in storage.
-     */
+    
     public function store(CustomerRequest $request): RedirectResponse
     {
-        // The request is automatically validated by the CustomerRequest class
+        
         Customer::create($request->validated());
 
         return redirect()->route('customers.index')
             ->with('success', 'Customer created successfully.');
     }
 
-    /**
-     * Show the form for editing the specified customer.
-     */
+    
     public function edit(Customer $customer): View
     {
         return view('customers.edit', compact('customer'));
     }
 
-    /**
-     * Update the specified customer in storage.
-     */
+  
     public function update(CustomerRequest $request, Customer $customer): RedirectResponse
     {
-        // The request is automatically validated by the CustomerRequest class
+        
         $customer->update($request->validated());
 
         return redirect()->route('customers.index')
             ->with('success', 'Customer updated successfully.');
     }
 
-    /**
-     * Show the form for confirming deletion of the specified customer.
-     */
+    
     public function delete(Customer $customer): View
     {
         return view('customers.delete', compact('customer'));
     }
 
-    /**
-     * Remove the specified customer from storage.
-     */
+   
     public function destroy(Customer $customer): RedirectResponse
     {
         $customer->delete();
@@ -79,9 +69,7 @@ class CustomerController extends Controller
             ->with('success', 'Customer deleted successfully.');
     }
 
-    /**
-     * Search for customers by name, email, phone or address.
-     */
+   
     public function searchTerm(Request $request, $term)
     {
 
@@ -94,9 +82,7 @@ class CustomerController extends Controller
 
         return response()->json($customers);
     }
-  /**
-     * Search for customers by name, email, phone or address.
-     */
+  
     public function search(Request $request)
     {
 $term = $request->input('term');

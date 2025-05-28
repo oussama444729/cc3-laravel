@@ -12,30 +12,27 @@ use Illuminate\View\View;
 
 class DashboardController extends Controller
 {
-    public function index(): View
+    public function index()
     {
         return view('dashboard');
     }
 
     public function customers(): View
     {
-        return view('customers.index', [
-            'customers' => Customer::all()
-        ]);
+        $customers  = Customer::all();
+        return view('customers.index', compact('customers'));
     }
 
     public function suppliers(): View
     {
-        return view('suppliers.index', [
-            'suppliers' => Supplier::all()
-        ]);
+        $suppliers = Supplier::all();
+        return view('suppliers.index', compact('suppliers'));
     }
 
     public function products(): View
     {
-        return view('products.index', [
-            'products' => Product::with(['category', 'supplier', 'stock'])->get()
-        ]);
+        $products = Product::with(['category','supplier','stock'])->get();
+        return view('products.index', compact('products'));
     }
 
     public function productsBySupplier(): View

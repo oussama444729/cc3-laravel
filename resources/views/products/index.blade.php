@@ -111,7 +111,7 @@
                 @if($products->lastPage() > 1)
                 <nav aria-label="Page navigation">
                     <ul class="pagination mb-0">
-                        {{-- Previous page link --}}
+                        
                         @if($products->currentPage() > 1)
                         <li class="page-item">
                             <a class="page-link" href="{{ $products->url($products->currentPage() - 1) }}"
@@ -120,14 +120,14 @@
                         </li>
                         @endif
 
-                        {{-- Page numbers --}}
+                     
                         @for($i = 1; $i <= $products->lastPage(); $i++)
                             <li class="page-item {{ $i === $products->currentPage() ? 'active' : '' }}">
                                 <a class="page-link" href="{{ $products->url($i) }}" data-page="{{ $i }}">{{ $i }}</a>
                             </li>
                             @endfor
 
-                            {{-- Next page link --}}
+                           
                             @if($products->currentPage() < $products->lastPage())
                                 <li class="page-item">
                                     <a class="page-link" href="{{ $products->url($products->currentPage() + 1) }}"

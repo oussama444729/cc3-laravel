@@ -89,7 +89,7 @@
         $('#customerForm').on('submit', function(event) {
             let isValid = true;
 
-            // Validate First Name
+            
             if (!$('#first_name').val().trim()) {
                 $('#first_name').addClass('is-invalid');
                 isValid = false;
@@ -97,7 +97,7 @@
                 $('#first_name').removeClass('is-invalid');
             }
 
-            // Validate Last Name
+            
             if (!$('#last_name').val().trim()) {
                 $('#last_name').addClass('is-invalid');
                 isValid = false;
@@ -105,7 +105,7 @@
                 $('#last_name').removeClass('is-invalid');
             }
 
-            // Validate Email
+            
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!$('#email').val().trim() || !emailRegex.test($('#email').val().trim())) {
                 $('#email').addClass('is-invalid');
@@ -114,7 +114,7 @@
                 $('#email').removeClass('is-invalid');
             }
 
-            // Validate Phone
+            
             if (!$('#phone').val().trim()) {
                 $('#phone').addClass('is-invalid');
                 isValid = false;
@@ -122,7 +122,7 @@
                 $('#phone').removeClass('is-invalid');
             }
 
-            // Validate Address
+            
             if (!$('#address').val().trim()) {
                 $('#address').addClass('is-invalid');
                 isValid = false;

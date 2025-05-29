@@ -84,5 +84,13 @@ Route::get('/api/customers/{customer}/orders', [OrderController::class, 'getCust
 // Route API pour les détails d'une commande
 Route::get('/api/orders/{order}/details', [OrderController::class, 'getOrderDetails'])->name('orders.details');
 
+// cookies and sessions
+Route::post("/saveCookie", [DashboardController::class, 'saveCookie'])->name("saveCookie");
+Route::post("/saveSession", [DashboardController::class, 'saveSession'])->name("saveSession");
+Route::post("/saveAvatar", [DashboardController::class, 'saveAvatar'])->name("saveAvatar");
+
+
 // Route du tableau de bord (dashboard)
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
+
+

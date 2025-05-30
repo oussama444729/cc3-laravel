@@ -38,9 +38,13 @@ class Store extends Model
     /**
      * Get all of the products for the current store.
      */
-    public function products(): HasManyThrough
-    {
-        return $this->hasManyThrough(Product::class, Stock::class);
-    }
-
+    // public function products(): HasManyThrough
+    // {
+    //     return $this->hasManyThrough(Product::class, Stock::class);
+    // }
+   
+    public function products()
+                {
+           return $this->hasManyThrough(Product::class, Stock::class, 'store_id', 'id', 'id', 'product_id');
+            }
 }

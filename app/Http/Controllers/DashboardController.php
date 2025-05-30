@@ -56,7 +56,7 @@ class DashboardController extends Controller
     
 
     public function productsByStore(Request $request): View
-{
+      {
     $stores = Store::all();
     $products = collect();
 
@@ -72,17 +72,7 @@ class DashboardController extends Controller
 
    
 
-    public function getProductsByStore(Store $store)
-    {
-        $stores = Store::all();
-        $products = $stores->products;
-        return view('products.by-store', compact('stores', 'products'));
-    }
-    public function orders()
-    {
-        return view("orders.index");
-    }
-
+   
     // sessions , cookies and image 
     public function  saveCookie(){
         $name = request()->input("txtCookie");

@@ -13,21 +13,16 @@
             </a>
         </div>
     </div>
-    <div class="card">
-        <div class="card-body">
-            <div class="row mb-4">
-                <div class="col-md-6">
-                    <select id="store-select"  class="form-select">
-                        <option value="">Select a Store</option>
-                        @foreach($stores as $store)
-                            <option value="{{ $store->id }}">{{ $store->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-           
-        </div>
-    </div>
+    <form method="GET" action="{{ route('products.by.store') }}">
+    <select name="store_id" class="form-select">
+        <option value="">Select a Store</option>
+        @foreach($stores as $store)
+            <option value="{{ $store->id }}" {{ request('store_id') == $store->id ? 'selected' : '' }}>{{ $store->name }}</option>
+        @endforeach
+    </select>
+    <button type="submit" class="btn btn-primary mt-2">Show Products</button>
+</form>
+
 </div>
 
  <div class="table-responsive">

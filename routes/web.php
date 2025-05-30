@@ -34,8 +34,6 @@ Route::get('/profile', [AuthController::class, 'showProfile'])->name('profile');
 Route::put('/profile', [AuthController::class, 'updateProfile'])->name('profile.update');
 Route::put('/password', [AuthController::class, 'updatePassword'])->name('password.change');
 
-// Route des commandes
-Route::get('/orders', [DashboardController::class, 'orders'])->name('orders.index');
 
 // Route pour filtrer les produits par catégorie
 Route::get('/products-by-category/{category}', [CategoryController::class, 'getProductByCategory'])->name('products.filter.by.category');
@@ -60,10 +58,8 @@ Route::get('/products-by-supplier', [DashboardController::class, 'productsBySupp
 
 // Routes des produits par magasin
 Route::get('/products-by-store', [DashboardController::class, 'productsByStore'])->name('products.by.store');
-Route::get('/api/products-by-store/{store}', [DashboardController::class, 'getProductsByStore'])->name('api.products.by.store');
 
-// Routes des commandes
-Route::get('/orders', [DashboardController::class, 'orders'])->name('orders.index');
+
 
 // Routes des clients
 Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index');
@@ -78,11 +74,7 @@ Route::delete('/customers/{customer}', [CustomerController::class, 'destroy'])->
 Route::get('/api/customers/search', [CustomerController::class, 'search'])->name('customers.search');
 Route::get('/api/customers/search/{term}', [CustomerController::class, 'searchTerm'])->name('customers.search.term');
 
-// Route API pour les commandes d'un client
-Route::get('/api/customers/{customer}/orders', [OrderController::class, 'getCustomerOrders'])->name('customers.orders');
 
-// Route API pour les détails d'une commande
-Route::get('/api/orders/{order}/details', [OrderController::class, 'getOrderDetails'])->name('orders.details');
 
 // cookies and sessions
 Route::post("/saveCookie", [DashboardController::class, 'saveCookie'])->name("saveCookie");

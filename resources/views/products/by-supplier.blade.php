@@ -13,7 +13,7 @@
                 <option value="">-- Sélectionner --</option>
                 @foreach($suppliers as $supplier)
                     <option value="{{ $supplier->id }}" {{ request('supplier_id') == $supplier->id ? 'selected' : '' }}>
-                        {{ $supplier->name }}
+                        {{ $supplier->first_name . ' ' .  $supplier->last_name }}
                     </option>
                 @endforeach
             </select>

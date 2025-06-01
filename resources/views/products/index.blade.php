@@ -17,6 +17,11 @@
                     </svg>
                     Add New Product
                 </button>
+                
+                {{-- PRINT MPDF  --}}
+                <a class="btn btn-info" href="{{ route('products.print') }}" target="_blank"><i class="fa fa-print"></i>
+                    Print</a>
+
                 <a href="{{ route('dashboard') }}" class="btn btn-secondary d-flex align-items-center gap-2">
                     <svg class="bi" width="16" height="16" fill="currentColor">
                         <path fill-rule="evenodd"

@@ -10,6 +10,9 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ProductRequest;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Mpdf\Mpdf;
 
 class ProductController extends Controller
 {
@@ -116,5 +119,21 @@ class ProductController extends Controller
         $product->delete();
 
         return response()->json(['success' => true]);
+    }
+
+    // PRINT MPDF 
+    public function print()
+    {
+        $user = User::find(1); 
+        $products = Product::with(['category', 'supplier', 'stock'])->get();
+        $data = [
+            'products' => $products,
+            'user' => $user 
+        ];
+
+        $mpdf = new Mpdf();
+        $html = view('products.print_pdf', $data)->render();
+        $mpdf->WriteHTML($html);
+        return $mpdf->Output('products.pdf', 'I'); 
     }
 }

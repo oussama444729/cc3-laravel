@@ -74,12 +74,17 @@ Route::delete('/customers/{customer}', [CustomerController::class, 'destroy'])->
 Route::get('/api/customers/search', [CustomerController::class, 'search'])->name('customers.search');
 Route::get('/api/customers/search/{term}', [CustomerController::class, 'searchTerm'])->name('customers.search.term');
 
-
+// Print MPDF
+Route::get('/products/print', [ProductController::class, 'print'])->name('products.print');
 
 // cookies and sessions
 Route::post("/saveCookie", [DashboardController::class, 'saveCookie'])->name("saveCookie");
 Route::post("/saveSession", [DashboardController::class, 'saveSession'])->name("saveSession");
 Route::post("/saveAvatar", [DashboardController::class, 'saveAvatar'])->name("saveAvatar");
+
+// Export and Import 
+Route::get('products-export', [ProductController::class, 'export'])->name('products.export');
+Route::post('products-import', [ProductController::class, 'import'])->name('products.import');
 
 
 // Route du tableau de bord (dashboard)

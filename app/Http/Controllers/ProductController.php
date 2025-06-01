@@ -136,4 +136,13 @@ class ProductController extends Controller
         $mpdf->WriteHTML($html);
         return $mpdf->Output('products.pdf', 'I'); 
     }
+    // Chart.js
+    public function statistics()
+{
+    $labels = ['Janvier', 'Février', 'Mars'];
+    $data = [120, 190, 30];
+
+    return view('products.statistics', compact('labels', 'data'));
+}
+
 }

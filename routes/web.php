@@ -86,6 +86,9 @@ Route::post("/saveAvatar", [DashboardController::class, 'saveAvatar'])->name("sa
 Route::get('products-export', [ProductController::class, 'export'])->name('products.export');
 Route::post('products-import', [ProductController::class, 'import'])->name('products.import');
 
+// Chart.js
+Route::get('/statistics', [ProductController::class, 'statistics'])->name('products.statistics');
+
 
 // Route du tableau de bord (dashboard)
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');

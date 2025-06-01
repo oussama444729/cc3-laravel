@@ -53,6 +53,10 @@
             <p class="mb-0">&copy; {{ date('Y') }} Stock Management System. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
 </body>
 
 </html>

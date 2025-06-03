@@ -12,12 +12,37 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
+use App\Models\User;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        return view('dashboard');
+       $user = User::find(1); // Récupérer l'utilisateur avec l'ID 1
+
+         // Récupérer les catégories avec le nombre de leurs produits
+        $categories = Category::withCount('products')->get();
+
+         // Préparer les données pour le graphique des catégories
+        $categoryLabels = $categories->pluck('name');
+         $productCounts = $categories->pluck('products_count');
+
+       // Récupérer les magasins avec le nombre de leurs produits
+      $stores = Store::withCount('products')->get();
+
+     // Préparer les données pour le graphique des magasins
+     $storeLabels = $stores->pluck('name');
+     $storeCounts = $stores->pluck('products_count');
+
+        return view('dashboard', [
+                          'pic' => $user->avatar,
+                          'categoryLabels' => $categoryLabels,
+                         'productCounts' => $productCounts,
+                         'storeLabels' => $storeLabels,
+                         'storeCounts' => $storeCounts
+            ]);
+
+
     }
 
     public function customers(): View

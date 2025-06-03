@@ -126,5 +126,8 @@
                 </div> 
             </div> 
         </div> 
+        {{-- include chart --}}
+        @include('partials._category_chart')
+         @include('partials._store_chart')
 </div>
 @endsection

@@ -115,7 +115,7 @@
                                             <p class="text-muted mb-2">Image actuelle :</p>
                                             <img class="img-fluid rounded-circle border border-secondary shadow-sm"
                                              style="width: 120px; height: 120px; object-fit: cover;"
-                                              src="{{"storage/avatars/.$pic"}}" alt="Avatar">
+                                              src="{{"storage/avatars/.$pic"}}" alt="">
                                         </div>
                                     @endif 
                                 </form>

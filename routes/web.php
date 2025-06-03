@@ -82,12 +82,10 @@ Route::post("/saveCookie", [DashboardController::class, 'saveCookie'])->name("sa
 Route::post("/saveSession", [DashboardController::class, 'saveSession'])->name("saveSession");
 Route::post("/saveAvatar", [DashboardController::class, 'saveAvatar'])->name("saveAvatar");
 
-// Export and Import 
-Route::get('products-export', [ProductController::class, 'export'])->name('products.export');
-Route::post('products-import', [ProductController::class, 'import'])->name('products.import');
+// // Export and Import 
+// Route::get('products-export', [ProductController::class, 'export'])->name('products.export');
+// Route::post('products-import', [ProductController::class, 'import'])->name('products.import');
 
-// Chart.js
-Route::get('/statistics', [ProductController::class, 'statistics'])->name('products.statistics');
 
 
 // Route du tableau de bord (dashboard)

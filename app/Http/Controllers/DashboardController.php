@@ -111,16 +111,14 @@ class DashboardController extends Controller
     }
 
     public function saveAvatar(){
-        request()->validate([
-            'avatarFile'=>'required|image',
-        ]);
-         $user = Auth::user();
-        
-        $ext = request()->avatarFile->getClientOriginalExtension();
-        $name = Str::random(30).time().".".$ext;
-        request()->avatarFile->move(public_path('storage/avatars'),$name);
-       
-        $user->update(['avatar'=>$name]);
-        return redirect()->back();
+         request()->validate([
+        'avatarFile'=>'required|image',
+            ]);
+    $ext = request()->avatarFile->getClientOriginalExtension();
+    $name = Str::random(30).time().".".$ext;
+    request()->avatarFile->move(public_path('storage/avatars'),$name);
+    $user = User::find(1);
+    $user->update(['avatar'=>$name]);
+    return redirect()->back();
     }
 }
